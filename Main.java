@@ -15,9 +15,6 @@ import java.util.Scanner;
 
 public class Main{
   public static void main(String[] args){
-    System.out.println("test");
-    System.out.println("t");
-    System.out.println("brad");
 
     //testing file reading
     File file = new File("test.txt");
@@ -32,7 +29,7 @@ public class Main{
     }
 
     Scanner scanner = new Scanner(System.in);
-    System.out.println("What word would you like to find?");
+    //System.out.println("What word would you like to find?");
     String ourWord = scanner.next();
     //temp print statement inorder to check that the answer input actually was saved.
     System.out.println(ourWord);
