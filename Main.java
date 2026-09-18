@@ -16,8 +16,14 @@ import java.util.Scanner;
 public class Main{
   public static void main(String[] args){
 
+    //aksking the user the name of the file they'd like to read.
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("What file would you like to read:");
+      String findFile = scanner.next();
+
     //testing file reading
-    File file = new File("test.txt");
+
+    File file = new File(findFile);
     try (Scanner myReader = new Scanner(file)) {
       while (myReader.hasNextLine()) {
         String data = myReader.nextLine();
@@ -28,7 +34,6 @@ public class Main{
       e.printStackTrace();
     }
 
-    Scanner scanner = new Scanner(System.in);
     //System.out.println("What word would you like to find?");
     String ourWord = scanner.next();
     //temp print statement inorder to check that the answer input actually was saved.
