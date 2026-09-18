@@ -10,8 +10,9 @@
  */
 
 //random test
-
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main{
   public static void main(String[] args){
@@ -30,5 +31,13 @@ public class Main{
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("What word would you like to find?");
+    String ourWord = scanner.next();
+    System.out.println(ourWord);
+    scanner.close();
+  }
+}
   }
 }
