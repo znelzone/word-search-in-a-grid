@@ -10,10 +10,17 @@
  */
 
 //random test
+import java.util.Scanner;
+
+
 public class Main{
   public static void main(String[] args){
-    System.out.println("test");
-    System.out.println("t");
-    System.out.println("brad");
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.println("What word would you like to find?");
+    String ourWord = scanner.next();
+    System.out.println(ourWord);
+
+      scanner.close();
   }
 }
