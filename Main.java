@@ -19,14 +19,19 @@ public class Main{
     Scanner scanner = new Scanner(System.in);
     System.out.println("What word would you like to find?");
     String ourWord = scanner.next();
-    scanner.close();
 
     //checking for letter
     int location = 0;
     char letter = ourWord.charAt(location);
 
+    //asking the user the name of the file they'd like to read.
+    System.out.println("What file would you like to read:");
+    String findFile = scanner.next();
+    scanner.close();
+
     //testing file reading
-    File file = new File("test.txt");
+
+    File file = new File(findFile);
     try (Scanner myReader = new Scanner(file)) {
       while (myReader.hasNextLine()) {
         String line = myReader.nextLine();
@@ -44,7 +49,6 @@ public class Main{
       e.printStackTrace();
     }
 
-    Scanner scanner = new Scanner(System.in);
     //System.out.println("What word would you like to find?");
     String ourWord = scanner.next();
     //temp print statement inorder to check that the answer input actually was saved.
