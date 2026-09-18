@@ -10,10 +10,25 @@
  */
 
 //random test
+
+import java.io.File;
+
 public class Main{
   public static void main(String[] args){
     System.out.println("test");
     System.out.println("t");
     System.out.println("brad");
+
+    //testing file reading
+    File file = new File("test.txt");
+    try (Scanner myReader = new Scanner(file)) {
+      while (myReader.hasNextLine()) {
+        String data = myReader.nextLine();
+        System.out.println(data);
+      }
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
   }
 }
