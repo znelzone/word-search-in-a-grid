@@ -16,9 +16,6 @@ import java.util.Scanner;
 
 public class Main{
   public static void main(String[] args){
-    System.out.println("test");
-    System.out.println("t");
-    System.out.println("brad");
 
     //testing file reading
     File file = new File("test.txt");
