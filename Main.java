@@ -9,7 +9,6 @@
  * @since 0.1.0
  */
 
-//random test
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -45,5 +44,13 @@ public class Main{
       e.printStackTrace();
     }
 
+    Scanner scanner = new Scanner(System.in);
+    //System.out.println("What word would you like to find?");
+    String ourWord = scanner.next();
+    //temp print statement inorder to check that the answer input actually was saved.
+    System.out.println(ourWord);
+
+    //required to close scanner
+    scanner.close();
   }
 }
