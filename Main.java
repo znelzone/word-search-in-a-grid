@@ -17,22 +17,33 @@ import java.util.Scanner;
 public class Main{
   public static void main(String[] args){
 
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("What word would you like to find?");
+    String ourWord = scanner.next();
+    scanner.close();
+
+    //checking for letter
+    int location = 0;
+    char letter = ourWord.charAt(location);
+
     //testing file reading
     File file = new File("test.txt");
     try (Scanner myReader = new Scanner(file)) {
       while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
-        System.out.println(data);
+        String line = myReader.nextLine();
+        
+        for (int i = 0; i < line.length(); i++) {
+          if (line.charAt(i) == letter) {
+            System.out.println("Found " + letter + " at index " + i);
+          } else {
+            System.out.println("Not found");
+          }
+        }
       }
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
 
-    Scanner scanner = new Scanner(System.in);
-    //System.out.println("What word would you like to find?");
-    String ourWord = scanner.next();
-    System.out.println(ourWord);
-    scanner.close();
   }
 }
