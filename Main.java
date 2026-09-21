@@ -65,7 +65,7 @@ public class Main{
      * @throws IllegalArgumentException if text is empty
      * @since version 0.1.1 
      */
-    public static char[] extendStrtoarray(String text){
+    public static char[] spacedChararray(String text){
         
         if(text.length() == 0){
           //if the string is empty throws an exception
