@@ -28,13 +28,13 @@ public class Main{
     System.out.println("What file would you like to read:");
     String findFile = scanner.next();
     scanner.close();
+    //opens file
+    File file = new File(findFile);
+
 
     //looking at char in search word
     int location = 0;
     char letter = ourWord.charAt(location);
-
-    //opens file
-    File file = new File(findFile);
 
     //reads data in file and creates a string for a line in the file
     try (Scanner myReader = new Scanner(file)) {
