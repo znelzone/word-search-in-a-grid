@@ -19,6 +19,23 @@ import java.util.Scanner;
 public class Main{
   public static void main(String[] args){
     
+    //asks what word to search for in the file
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("What word would you like to find?");
+    String ourWord = scanner.nextLine();
+
+    //asking the user for the name of the file to search in
+    System.out.println("What file would you like to read:");
+    String findFile = scanner.next();
+    scanner.close();
+
+    //looking at char in search word
+    int location = 0;
+    char letter = ourWord.charAt(location);
+
+    //opens file
+    File file = new File(findFile);
+
     //reads data in file and creates a string for a line in the file
     try (Scanner myReader = new Scanner(file)) {
       while (myReader.hasNextLine()) {
@@ -38,7 +55,6 @@ public class Main{
       e.printStackTrace();
     }
 
-    //required to close scanner
-    scanner.close();
+    
   }
 }
