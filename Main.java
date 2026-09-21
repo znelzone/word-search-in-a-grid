@@ -23,7 +23,7 @@ public class Main{
     //asks what word to search for in the file
     Scanner scanner = new Scanner(System.in);
     System.out.println("What word would you like to find?");
-    String ourWord = scanner.nextLine();
+    String searchWord = scanner.nextLine();
 
     //asking the user for the name of the file to search in
     System.out.println("What file would you like to read:");
@@ -33,9 +33,22 @@ public class Main{
     File file = new File(findFile);
 
 
-    //looking at char in search word
+
+
+
+    //loop to interate through 2d array
+//    for(int row = 0, col = 0; col < searchArray; row++){
+//        while(col < searchArray.lenght){
+//                
+//
+//
+//         col++;
+//      }
+//  }
+
+
     int location = 0;
-    char letter = ourWord.charAt(location);
+    char letter = searchWord.charAt(location);
 
     //reads data in file and creates a string for a line in the file
     try (Scanner myReader = new Scanner(file)) {
@@ -94,8 +107,7 @@ public class Main{
               }
           }
           return extendedArray;
-        }
-          
+        }  
     }
 
 
