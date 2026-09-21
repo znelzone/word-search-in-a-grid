@@ -35,7 +35,20 @@ public class Main{
     File file = new File(findFile);
 
 
-    //looking at char in search word
+
+
+
+    //loop to interate through 2d array
+//    for(int row = 0, col = 0; col < searchArray; row++){
+//        while(col < searchArray.lenght){
+//                
+//
+//
+//         col++;
+//      }
+//  }
+
+
     int location = 0;
     char letter = searchWord.charAt(location);
 
@@ -109,14 +122,14 @@ public class Main{
               
     //           extendedArray[arrayloc] = text.charAt(strloc);
               
-    //           if(arrayloc < extendedArray.length-1){
-    //           extendedArray[arrayloc+1] = ' ';
-    //           }
-    //       }
-    //       return extendedArray;
-    //     }
+              if(arrayloc < extendedArray.length-1){
+              extendedArray[arrayloc+1] = ' ';
+              }
+          }
+          return extendedArray;
+        }
           
-  }
+    }
 
 
 }
