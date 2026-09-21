@@ -121,13 +121,6 @@ public class Main{
     //       for(int arrayloc = 0, strloc = 0;strloc < text.length();arrayloc+=2, strloc++){
               
     //           extendedArray[arrayloc] = text.charAt(strloc);
-              
-              if(arrayloc < extendedArray.length-1){
-              extendedArray[arrayloc+1] = ' ';
-              }
-          }
-          return extendedArray;
-        }
           
     }
 
