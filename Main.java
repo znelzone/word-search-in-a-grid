@@ -1,13 +1,13 @@
 /**
- * Java Docs experimentation Class
- *
-
+ * Reads a text file and searches for a word within the file.
+ * If the word is found, will return found,
+ * otherwise will return not found.
  * 
  * @author Zackary Nelson
  * @author Bradly Patton
  * @author Ulises Royal
  * @author Peyton Slusser
- * @version 0.1.0
+ * @version 0.1.1
  * @since 0.1.0
  * @param text file
  */
@@ -51,10 +51,51 @@ public class Main{
         }
       }
     } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
+      System.out.println("An error occurred, file not found.");
       e.printStackTrace();
     }
 
     
   }
+
+    /**Copys a String into a character array placing a space
+     * between each character in the array.
+     * @param text the string to be converted
+     * @return a char array with spaces between each original character
+     * @throws IllegalArgumentException if text is empty
+     * @since version 0.1.1 
+     */
+    public static char[] extendStrtoarray(String text){
+        
+        if(text.length() == 0){
+          //if the string is empty throws an exception
+          throw new IllegalArgumentException("String cannont be empty.");
+          //maybe should change this to "please enter a word"
+        
+        } else if (text.length()==1){
+          //if string has one character makes an array with one character
+          
+          char[] extendedArray = new char[1];
+          extendedArray[0] = text.charAt(0);
+          return extendedArray;
+        
+        } else (text.length()>1){
+          //converts the string into an array of chars with
+          //spaces between each char.
+          
+          char[] extendedArray = new char[(text.length()*2)-1];
+          for(int arrayloc = 0, strloc = 0;strloc < text.length();arrayloc+=2, strloc++){
+              
+              extendedArray[arrayloc] = text.charAt(strloc);
+              
+              if(arrayloc < extendedArray.length-1){
+              extendedArray[arrayloc+1] = ' ';
+              }
+          }
+          return extendedArray;
+        }
+          
+    }
+
+
 }
