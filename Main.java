@@ -79,9 +79,12 @@ public class Main{
      * @throws IllegalArgumentException if text is empty
      * @since version 0.1.1 
      */
-    public static char[] spacedChararray(String text){
+    public static char[] convertSpacedstringtoarray(String text){
         
-        if(text.length() == 0){
+        
+      
+      
+      if(text.length() == 0){
           //if the string is empty throws an exception
           throw new IllegalArgumentException("String cannont be empty.");
           //maybe should change this to "please enter a word"
