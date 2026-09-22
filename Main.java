@@ -171,11 +171,9 @@ public class Main {
         if (match) {
           return true;
         }
-
       }
     }
     return false;
-
     // end of horizontalSearch method
   }
 
@@ -189,6 +187,36 @@ public class Main {
    */
   public static boolean verticalSearch(char[][] twoDArray, String text) {
 
+    //vertical search
+    //goes through each column
+    for(int col = 0; col < twoDArray[0].length; col++){
+      
+      //goes through each row without falling off the bottom
+      for(int row = 0; row <= twoDArray.length-text.length(); row++){
+        boolean match = false;
+
+        //compares each index w each character
+        //if it finds a match the loop keeps going
+        //if it doesn't find a match the loop breaks and moves to the
+        //next row and searches from there again.
+        for(int wordIndex = 0; wordIndex < text.length(); wordIndex++){
+          if(twoDArray[row + wordIndex][col]==text.charAt(wordIndex)){
+
+            match = true;
+          } else {
+            match = false;
+            break;
+          }
+        }
+        
+        //having made it out of the word checking loop, if every char was a match
+        //then this statement should trigger and cause the method to return true
+        //it has found a matching word.
+        if(match){
+          return true;
+        }
+      }
+    }
     return false;
 
     // end if verticalSearch method
