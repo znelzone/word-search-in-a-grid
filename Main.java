@@ -151,26 +151,29 @@ public class Main {
 
       // goes through the columns without falling out of the array
       for (int col = 0; col <= twoDArray[row].length - text.length(); col++) {
-        boolean match = false;
+        boolean forwardMatch = true;
+        boolean backwardMatch = true;
 
         //compares each index of text with the current starting point being whichever
         //column the column loop is currently pointing at
         for (int wordIndex = 0; wordIndex < text.length(); wordIndex++) {
           
-          if (twoDArray[row][col + wordIndex] == text.charAt(wordIndex)) {
-            match = true;
-          } else {
-            // if at any point the word doesn't match with whats in the row
-            // break out of loop after recording a false value. this will
-            // cause loops to move to the next col
-            match = false;
-            break;
+
+          //travels forward through the col and word
+          //if any character is not equal then word was not found forwards
+          if (twoDArray[row][col + wordIndex] != text.charAt(wordIndex)) {
+            forwardMatch = false;
+          }
+          
+          //travels forward through the col and backward through the word
+          //if any character is not equal then word was not found backwards
+          if (twoDArray[row][col + wordIndex] != text.charAt(text.length() - 1 - wordIndex)){
+            backwardMatch = false;
           }
         }
-        //having made it out of the word checking loop, if every char was a match
-        //then this if statement should trigger and cause the method to return true
-        //it has found a matching word.
-        if (match) {
+        
+        //if a match was found either forward or backwards then word was found
+        if(forwardMatch || backwardMatch){
           return true;
         }
       }
@@ -195,28 +198,31 @@ public class Main {
       
       //goes through each row without falling off the bottom
       for(int row = 0; row <= twoDArray.length-text.length(); row++){
-        boolean match = false;
+        boolean forwardMatch = true;
+        boolean backwardMatch = true;
 
         //compares each index w each character
         //if it finds a match the loop keeps going
-        //if it doesn't find a match the loop breaks and moves to the
-        //next row and searches from there again.
         for(int wordIndex = 0; wordIndex < text.length(); wordIndex++){
-          if(twoDArray[row + wordIndex][col]==text.charAt(wordIndex)){
 
-            match = true;
-          } else {
-            match = false;
-            break;
+          //travels forward through both the row and word index by index
+          //if any character is not equal then a match wasn't found
+          if(twoDArray[row + wordIndex][col] != text.charAt(wordIndex)){
+            forwardMatch = false;
+        }
+
+          //travels forward through the row and backward through the word
+          //if any chacter is not equal then a match wasn't found
+          if(twoDArray[row + wordIndex][col] != text.charAt(text.length() - 1 - wordIndex)){
+            backwardMatch = false;
           }
         }
-        
-        //having made it out of the word checking loop, if every char was a match
-        //then this statement should trigger and cause the method to return true
-        //it has found a matching word.
-        if(match){
+
+        //if the word was found forward or backward return true
+        if (forwardMatch || backwardMatch){
           return true;
         }
+
       }
     }
     return false;
