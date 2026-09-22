@@ -8,7 +8,7 @@
  * @author Bradly Patton
  * @author Ulises Royal
  * @author Peyton Slusser
- * @version 0.1.1
+ * @version 0.1.2
  * @since 0.1.0
  * @param args
  * @param text file
@@ -22,7 +22,8 @@ import java.io.FileNotFoundException;
 
 public class Main {
   public static void main(String[] args) {
-
+    
+    boolean wordFound = false;
 
     // asks what word to search for in the file
     Scanner scanner = new Scanner(System.in);
@@ -34,8 +35,12 @@ public class Main {
     String gridFile = scanner.nextLine();
     scanner.close();
 
+    //creates our 2D array that we will be converting our file into
+    char[][] ourGrid = null;
 
     // tries to read the specified file and convert its content into a 2D char array
+    //while eliminating the spaces between characters from the original file for 
+    //easier searching for the searchWord
     try {
       // places the desired file into our file variable wordBoard
       File wordBoard = new File(gridFile);
@@ -51,17 +56,33 @@ public class Main {
       }
       fileScanner.close();
 
-      // converts into 2d char array
-      char[][] ourGrid = rowList.toArray(new char[0][]);
+      // converts our List of char[] named rowList into 2d ourGrid char array
+      ourGrid = rowList.toArray(new char[0][]);
 
     } catch (FileNotFoundException e) {
       System.out.println("File not found: " + gridFile);
     }
 
 
+    //this set of if statements utilizes a set of three methods to determine
+    //if the word we're looking for is infact in the text file
+    if(horizontalSearch(ourGrid,searchWord)){
+      wordFound = true;
+    } else if (verticalSearch(ourGrid,searchWord)){
+      wordFound = true;
+    } else if (diagonalSearch(ourGrid,searchWord)){ 
+      wordFound = true;
+    }
 
 
-    
+    //final output statement's
+    if(wordFound){
+      System.out.println("Your Word Found!");
+    } else {
+      System.out.println("Your Word Not Found");
+    }
+
+    //end of main method
   }
 
   /**
@@ -95,6 +116,67 @@ public class Main {
       }
       return nonSpaced;
     }
+
+    //end of convertSpacedStringToArray method
   }
 
+  /** Searches diagonally through a 2D array for a string.
+   * @param twoDArray a 2D array to be searched through diagonally
+   * @param text the String we're looking for in the 2D array
+   * @return true or false based on if the string was found
+   * @since version 0.1.2
+  */
+  public static boolean diagonalSearch(char[][] twoDArray, String text){
+
+    return false;
+    
+    //end of diagonalSearch method
+  }
+
+  /** Searches horizontally through a 2D array for a string
+   * @param twoDArray a 2D array to be searched through horizontally
+   * @param text the String we're looking for in the 2D array
+   * @return true or false based on if the string was found
+   * @since version 0.1.2
+  */
+  public static boolean horizontalSearch(char[][] twoDArray, String text){
+
+    //horizontal search
+    for(int row=0;row<twoDArray.length;row++){
+      int col = 0;
+      int wordIndex = 0;
+        while(col <= twoDArray[row].length-text.length()){
+          if(twoDArray[row][col]==text.charAt(wordIndex)){
+
+
+          }
+          col++;
+        }
+        
+    }
+
+
+
+
+
+
+    return false;
+    
+    //end of horizontalSearch method
+  }
+
+  /** Searches vertically through a 2D array for a string
+   * @param twoDArray a 2D array to be searched through vertically
+   * @param text the String we're looking for in the 2D array
+   * @return true or false based on if the string was found
+   * @since version 0.1.2
+  */
+  public static boolean verticalSearch(char[][] twoDArray, String text){
+    
+    return false;
+
+    //end if verticalSearch method
+  }
+
+  //end of Main class
 }
