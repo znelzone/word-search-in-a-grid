@@ -32,6 +32,7 @@ public class Main {
 
     // asking the user for the name of the file to search in
     System.out.println("What file would you like to read:");
+    System.out.println("Please type your file with '.txt' at the end before entering.");
     String gridFile = scanner.nextLine();
     scanner.close();
 
@@ -61,6 +62,7 @@ public class Main {
 
     } catch (FileNotFoundException e) {
       System.out.println("File not found: " + gridFile);
+      return;
     }
 
     // this set of if statements utilizes a set of three methods to determine
