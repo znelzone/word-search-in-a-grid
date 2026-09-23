@@ -124,11 +124,97 @@ public class Main {
    * Searches diagonally through a 2D array for a string.
    * 
    * @param twoDArray a 2D array to be searched through diagonally
-   * @param text      the String we're looking for in the 2D array
+   * @param searchWord      the String we're looking for in the 2D array
    * @return true or false based on if the string was found
    * @since version 0.1.2
    */
-  public static boolean diagonalSearch(char[][] twoDArray, String text) {
+  public static boolean diagonalSearch(char[][] twoDArray, String searchWord) {
+    
+    //goes through every row
+    for (int row = 0; row < twoDArray.length; row++) {
+
+      //goes through every column
+      for (int col = 0; col < twoDArray[row].length; col++) {
+
+        //checking down right
+
+        //makes sure that search word doesnt go past row or columns
+        if (row + searchWord.length() <= twoDArray.length && col + searchWord.length() <= twoDArray[row].length) {
+
+          boolean match = true;
+
+          //checks each character
+          for (int wordIndex = 0; wordIndex < searchWord.length(); wordIndex++) {
+
+            //checks if search character at correct spot is not what we are looking for
+            if (twoDArray[row + wordIndex][col + wordIndex] != searchWord.charAt(wordIndex)) {
+              match = false;
+            }
+          }
+
+          if (match) {
+            return true;
+          }
+        }
+
+        //checking down left
+
+        //makes sure that search word doesnt go past row or columns
+        if (row + searchWord.length() <= twoDArray.length && col - searchWord.length() + 1 >= 0) {
+          boolean match = true;
+
+          //checks each character
+          for (int wordIndex = 0; wordIndex < searchWord.length(); wordIndex++) {
+            //checks if search character at correct spot is not what we are looking for
+            if (twoDArray[row + wordIndex][col - wordIndex] != searchWord.charAt(wordIndex)) {
+              match = false;
+            }
+          }
+
+          if (match) {
+            return true;
+          }
+        }
+
+        //checking up right
+
+        //makes sure that search word doesnt go past row or columns
+        if (row - searchWord.length() + 1 >= 0 && col + searchWord.length() <= twoDArray[row].length) {
+          boolean match = true;
+
+          //checks each character
+          for (int wordIndex = 0; wordIndex < searchWord.length(); wordIndex++) {
+            //checks if search character at correct spot is not what we are looking for
+            if (twoDArray[row - wordIndex][col + wordIndex] != searchWord.charAt(wordIndex)) {
+              match = false;
+            }
+          }
+          
+          if (match) {
+            return true;
+          }
+        }
+
+        //checking up left
+
+        //makes sure that search word doesnt go past row or columns
+        if (row - searchWord.length() + 1 >= 0 && col - searchWord.length() + 1 >= 0) {
+          boolean match = true;
+
+          //checks each character
+          for (int wordIndex = 0; wordIndex < searchWord.length(); wordIndex++) {
+            //checks if search character at correct spot is not what we are looking for
+            if (twoDArray[row - wordIndex][col - wordIndex] != searchWord.charAt(wordIndex)) {
+              match = false;
+            }
+          }
+          
+          if (match) {
+            return true;
+          }
+        }
+      }
+    }
 
     return false;
 
